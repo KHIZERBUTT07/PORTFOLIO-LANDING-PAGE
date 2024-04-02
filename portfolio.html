@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'poppins',sans-serif;
+    }
+    body{
+        background: #1f242d;
+        color: #fff;
+    }
+    .header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 10%;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 100;
+    }
+    .logo{
+        font-size: 25px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        cursor: default;
+        opacity: 0;
+        animation: slideRight 1s ease forwards;
+    }
+   .logo span{
+    color: #0ef;
+   }
+    .navbar a{
+        display: inline-block;
+        font-size: 18px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 35px;
+        transition: .3s;
+        opacity: 0;
+        animation: slideTop .5s ease forwards;
+        animation-delay: calc(.2s * var(--i));
+    }
+  
+    .navbar a:hover ,
+    .navbar a.active{
+        color: #0ef;
+    }
+
+    .home{
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 70px 10% 0;
+
+    }
+    .home-content{
+        max-width: 600px;
+    }
+    .home-content h3{
+        font-size: 32px;
+        font-weight: 700;
+        opacity: 0;
+        animation: slideBottom 1s ease forwards;
+        animation-delay: .7s;
+    }
+    .home-content h3:nth-of-type(2){
+        margin-bottom: 30px;
+        opacity: 0;
+        animation: slideTop 1s ease forwards;
+        animation-delay: .7s;
+    }
+    .home-content h3 span{
+        color: #0ef;
+    }
+    .home-content h1{
+        font-size: 56px;
+        font-weight: 700;
+        margin: 13px 0;
+        opacity: 0;
+        animation: slideRight 1s ease forwards;
+        animation-delay: .1s;
+    }
+    .home-content p{
+        font-size: 16px;
+        opacity: 0;
+        animation: slideLeft 1s ease forwards;
+        animation-delay: .1s;
+        font-style: italic;
+    }
+    .home-img img{
+        max-width: 450px;
+        max-height: 450px;
+        border-radius: 100% 30% 100% 30% ;
+        margin-right: -20px;
+        opacity: 0;
+        animation: zoomIn 1s ease forwards , floatImage 4s ease-in-out infinite;
+        animation-delay:2s,3s;
+        box-shadow: 0 0 500px #0ef;
+    }
+    .social-media a{
+        display: inline-flex;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border:2px solid #0ef;
+        border-radius: 50%;
+        font-size: 20px;
+        color: #0ef;
+        text-decoration: none;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 15px 25px 0;
+        transition: .5s ease;
+        opacity: 0;
+        animation: slideLeft 1s ease forwards;
+        animation-delay: calc(.2s * var(--i));
+    }
+    
+    .social-media a:hover{
+        background: #0ef;
+        color: #1f242d;
+        box-shadow: 0 0 20px #0ef;
+    }
+    .btn{
+        display: inline-block;
+        padding: 12px 28px;
+        background: #0ef;
+        color:#1f242d ;
+        border-radius: 40px;
+        box-shadow: 0 0 10px #0ef;
+        letter-spacing: 1px;
+        text-decoration: none;
+        font-weight: 600;
+        opacity: 0;
+        animation: slideTop 1s ease forwards;
+        animation-delay:1.9s
+    }
+
+    /* KEY FRAMES ANIMATION  */
+
+@keyframes  slideRight {
+    0% {
+        transform:translateX(-100px);
+        opacity:0;
+    }
+    100% {
+        transform:translateX(0);
+        opacity:1;
+    }
+}
+@keyframes  slideLeft {
+    0% {
+        transform:translateX(100px);
+        opacity:0;
+    }
+    100% {
+        transform:translateX(0);
+        opacity:1;
+    }
+}
+@keyframes  slideTop {
+    0% {
+        transform:translateY(100px);
+        opacity:0;
+    }
+    100% {
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+@keyframes  slideBottom {
+    0% {
+        transform:translateY(-100px);
+        opacity:0;
+    }
+    100% {
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+@keyframes  zoomIn {
+    0% {
+        transform:scale(0);
+        opacity:0;
+    }
+    100% {
+        transform:scale(1);
+        opacity:1;
+    }
+}
+@keyframes  floatImage {
+    0% {
+        transform:translateY(0);
+       
+    }
+    50% {
+        transform:translateY(-24px);
+       
+    }
+    100% {
+        transform:translateY(0);
+        
+    }
+}
+@media  (max-width:850px){
+    .logo{
+        font-size: 1rem;
+    }
+    .navbar a{
+        font-size: 0.85rem;
+        
+    }
+    .home-content h3{
+        font-size: 1.1rem;
+        
+    }
+    .home-content h1{
+        font-size: 1.5rem;
+    }
+    .home-content p{
+        font-size: 0.7rem;
+        max-width: 230px;
+    }
+    .btn{
+        max-width: 200px;
+        font-size: 0.7rem;
+    }
+    .home-img img{
+       max-width: 350px;
+       max-height: 350px;
+
+    }
+}
+@media (max-width:638px){
+    .navbar {
+        display: flex;
+        flex-direction:column;
+        font-size: 0.85rem;
+        align-items: flex-start;
+        
+    }
+    .navbar a{
+        margin-right: -30px;
+        
+    }
+  
+    .header{
+        position: relative;
+        margin-bottom: -100px;
+    }
+    .logo{
+        margin-top: -90px;
+    }
+ .home{
+    display: flex;
+    flex-direction: column;
+ }
+ .home-img img{
+    margin-top: 50px;
+    max-width: 280px;
+    max-height: 280px;
+ }
+}
+
+</style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="" class="logo">Port<span>Folio</span></a>
+        <nav class="navbar">
+            <a href="#" style="--i:1"  class="active">Home</a>
+            <a href="#" style="--i:2" >About</a>
+            <a href="#" style="--i:3" >Skills</a>
+            <a href="#" style="--i:4" >Portfolio</a>
+            <a href="#" style="--i:5" >Contact</a>
+        </nav>
+    </header>
+
+    <section class="home">
+        <div class="home-content">
+        <div class="social-media">
+              <h3>Hello,Its Me</h3>
+            <h1>Khizer Butt</h1>
+            <h3>And I'm a <span class="multiple-text"></span></h3>
+            <p>I'm a skilled MERN stack developer with expertise in MongoDB, Express.js, React, and Node.js. I love crafting robust ,responsive and user-friendly web applications. I'm specialize in front-end development. Let's collaborate and bring your ideas to life with elegant code and faster functionality! Check out my site for more details.</p>
+                  <a href="https://www.facebook.com/share/FWqDm95LBQn217XE/?mibextid=qi2Omg" target="_blank" style="--i:6" ><i class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/khizer__butt__xyz?igsh=MnB1bjZwZGpzb3Fo&utm_source=qr" target="_blank" style="--i:7" ><i class="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/khizer-butt-637a3a241?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="--i:8" ><i class="fa fa-linkedin"></i></a>
+                <a href="#" style="--i:9" ><i class="fa fa-behance"></i></a>
+            </div>
+            <a href="#" class="btn">Download CV</a>
+        </div>
+        <div class="home-img">
+            <img src="assets/images/khizerpasppic.jpg">
+        </div>
+    </section>
+</body>
+</html>
+<script src ="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+    var typed =new Typed(".multiple-text",{strings: ["Mern Stack Developer","Front-end Developer","Youtuber"],
+    typeSpeed:150,
+    backSpeed:150,
+    backDelay:1000,
+    loop:true,
+    })
+</script>
